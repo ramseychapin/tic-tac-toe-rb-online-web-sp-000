@@ -22,7 +22,11 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+<<<<<<< HEAD
 def move(board, index, current_player)
+=======
+def move(board, index, current_player = "X")
+>>>>>>> d2fcf9c991a528a265e51cb354951d0c63f3669b
   board[index] = current_player
 end
 
@@ -39,7 +43,11 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
+<<<<<<< HEAD
     move(board, index, current_player(board))
+=======
+    move(board, index)
+>>>>>>> d2fcf9c991a528a265e51cb354951d0c63f3669b
     display_board(board)
   else
     turn(board)
@@ -80,7 +88,15 @@ def full?(board)
 end
 
 def draw?(board)
+<<<<<<< HEAD
   !won?(board) && full?(board)
+=======
+  if full?(board) && !won?(board)
+    return true
+  elsif !won?(board) && !full?(board) || !won?(board)
+    return false
+  end
+>>>>>>> d2fcf9c991a528a265e51cb354951d0c63f3669b
 end
 
 def over?(board)
@@ -102,6 +118,7 @@ end
 
 # Define your play method below
 def play(board)
+<<<<<<< HEAD
   until over?(board)
     turn(board)
   end
@@ -110,4 +127,11 @@ def play(board)
     elsif draw?(board)
       puts "Cat's Game!"
     end
+=======
+  turns = 0
+  while turns < 9
+    turn(board)
+    turns += 1
+  end
+>>>>>>> d2fcf9c991a528a265e51cb354951d0c63f3669b
 end
